@@ -57,7 +57,7 @@ Masukkan data yang diminta dan tekan 'Predict Stroke' untuk mendapatkan hasilnya
 """)
 
 # Create input fields using Streamlit
-gender = st.selectbox("Jenis Kelamin", ["Male", "Female", "Other"])
+gender = st.selectbox("Jenis Kelamin", ["Male", "Female"])
 age = st.number_input("Usia", min_value=0, max_value=100, step=1)
 hypertension = st.selectbox("Riwayat Hipertensi (0 = No, 1 = Yes)", [0, 1])
 heart_disease = st.selectbox("Riwayat Penyakit Jantung (0 = No, 1 = Yes)", [0, 1])
