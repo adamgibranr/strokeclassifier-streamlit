@@ -49,24 +49,24 @@ pipeline = Pipeline(steps=[("preprocessor", preprocessor), ("model", model)])
 pipeline.fit(X, y)
 
 # Streamlit Frontend
-st.title("Stroke Prediction")
+st.title("Prediksi Terkena Stroke")
 
 st.write("""
-This app predicts whether a patient will have a stroke based on their medical data.
-Please input the data for the patient and press the 'Predict Stroke' button to get the result.
+Aplikasi ini melakukan prediksi apakah seseorang akan mengalami stroke berdasarkan data yang telah disediakan.
+Masukkan data yang diminta dan tekan 'Predict Stroke' untuk mendapatkan hasilnya.
 """)
 
 # Create input fields using Streamlit
-gender = st.selectbox("Gender", ["Male", "Female", "Other"])
-age = st.number_input("Age", min_value=0, max_value=100, step=1)
-hypertension = st.selectbox("Hypertension (0 = No, 1 = Yes)", [0, 1])
-heart_disease = st.selectbox("Heart Disease (0 = No, 1 = Yes)", [0, 1])
-ever_married = st.selectbox("Ever Married (Yes/No)", ["Yes", "No"])
-work_type = st.selectbox("Work Type", ["Private", "Self-employed", "Govt_job", "children", "Never_worked"])
-residence_type = st.selectbox("Residence Type", ["Urban", "Rural"])
-avg_glucose_level = st.number_input("Average Glucose Level", min_value=0.0, step=0.1)
-bmi = st.number_input("BMI", min_value=0.0, step=0.1)
-smoking_status = st.selectbox("Smoking Status", ["formerly smoked", "never smoked", "smokes", "Unknown"])
+gender = st.selectbox("Jenis Kelamin", ["Male", "Female", "Other"])
+age = st.number_input("Usia", min_value=0, max_value=100, step=1)
+hypertension = st.selectbox("Riwayat Hipertensi (0 = No, 1 = Yes)", [0, 1])
+heart_disease = st.selectbox("Riwayat Penyakit Jantung (0 = No, 1 = Yes)", [0, 1])
+ever_married = st.selectbox("Pernah Menikah ? (Yes/No)", ["Yes", "No"])
+work_type = st.selectbox("Tipe Pekerjaan", ["Private", "Self-employed", "Govt_job", "children", "Never_worked"])
+residence_type = st.selectbox("Tempat Tinggal", ["Urban", "Rural"])
+avg_glucose_level = st.number_input("Level Glukosa Rata - Rata", min_value=0.0, step=0.1)
+bmi = st.number_input("Indeks Massa Tubuh", min_value=0.0, step=0.1)
+smoking_status = st.selectbox("Apakah Merokok ?", ["formerly smoked", "never smoked", "smokes", "Unknown"])
 
 # Create a button for prediction
 if st.button("Predict Stroke"):
@@ -91,6 +91,6 @@ if st.button("Predict Stroke"):
 
     # Show the result
     if prediction == 1:
-        st.error("The model predicts: **Stroke**")
+        st.error("Prediksi menghasilkan: **Terkena Stroke**")
     else:
-        st.success("The model predicts: **No Stroke**")
+        st.success("Prediksi menghasilkan: **Tidak terkena Stroke**")
